@@ -19,12 +19,12 @@ const drag = (event, state) => {
 
     document.addEventListener('mousemove', function (e) {
         if (state.moving) {
-            const x = e.clientX - state.width;
-            const y = e.clientY - state.height;
+            const x = e.clientX - state.width
+            const y = e.clientY - state.height
 
-            const position = `left:${x}px;top:${y}px;`;
+            const position = `left:${x}px;top:${y}px;`
 
-            state.element.setAttribute('style', position);
-        };
-    });
+            state.element.setAttribute('style', position)
+        }
+    })
 }
