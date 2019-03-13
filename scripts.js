@@ -1,3 +1,4 @@
+const element = document.querySelector('.browser');
 
 let state = {
     moving: false,
@@ -21,8 +22,6 @@ const move = (event, state) => {
 
     state.element.setAttribute('style', position)
 }
-
-const element = document.querySelector('.browser');
 
 element.addEventListener('mousedown', (event) => {
     drag(state)
