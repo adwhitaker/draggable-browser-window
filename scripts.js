@@ -14,18 +14,26 @@ const drag = (state) => {
 }
 
 const move = (event, state) => {
-    if (state.moving) {
-        const x = event.clientX - state.width
-        const y = event.clientY - state.height
+    const x = event.clientX - state.width
+    const y = event.clientY - state.height
 
-        const position = `left:${x}px;top:${y}px;`
+    const position = `left:${x}px;top:${y}px;`
 
-        state.element.setAttribute('style', position)
-    }
+    state.element.setAttribute('style', position)
 }
 
 const element = document.querySelector('.browser');
 
-element.addEventListener('mousedown', (event) => drag(state))
-element.addEventListener('mouseup', (event) => state.moving = false)
-element.addEventListener('mousemove', (event) => move(event, state))
+element.addEventListener('mousedown', (event) => {
+    drag(state)
+})
+
+element.addEventListener('mouseup', (event) => {
+    state.moving = false
+})
+
+element.addEventListener('mousemove', (event) => {
+    if (state.moving) {
+        move(event, state)
+    }
+})
